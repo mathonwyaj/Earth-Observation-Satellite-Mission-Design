@@ -1,12 +1,121 @@
 # Earth-Observation Satellite Mission & Systems Design
 
-Preliminary design of a small multispectral satellite for UK flood monitoring.
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+[![Python tests](https://github.com/mathonwyaj/Earth-Observation-Satellite-Mission-Design/actions/workflows/tests.yml/badge.svg)](https://github.com/mathonwyaj/Earth-Observation-Satellite-Mission-Design/actions/workflows/tests.yml)
+![Status](https://img.shields.io/badge/review-preliminary%20design%20complete-blue)
 
-## Project status
+An end-to-end preliminary systems design for a two-spacecraft multispectral
+Earth-observation mission supporting UK flood monitoring. The project links
+payload sizing and radiometry to orbit selection, coverage, mission operations,
+spacecraft subsystem budgets, configuration, requirements verification and
+Monte Carlo robustness analysis.
 
-Phase 10 complete: final preliminary design review and evidence pack.
+> This is a concept-level engineering portfolio study, not a flight-qualified
+> spacecraft design. Performance values are model outputs based on the stated
+> assumptions and simplifications.
 
-## Run the payload model
+## Selected mission concept
+
+| Parameter | Selected design |
+|---|---:|
+| Architecture | 2 spacecraft |
+| Orbit | 550 km sun-synchronous orbit |
+| Inclination | 97.593 deg |
+| Ground-sampling distance | 10 m |
+| Swath width | 81.92 km |
+| Representative UK-site maximum revisit | 37.79 h |
+| Modelled worst priority-delivery latency | 1.39 h |
+| Spacecraft wet-mass limit | 60 kg each |
+| Payload aperture | 190 mm |
+| Multispectral bands | Blue, green, red and NIR |
+
+The final 5,000-case Monte Carlo assessment achieved **98.48% simultaneous
+budget closure**, exceeding the 95% concept target. The final verification
+matrix contains **15 passed, 1 open and 0 failed** concept-level requirements.
+The open item is three-year mission-life verification.
+
+![Final design review status](results/final_design_review/final_design_review.png)
+
+## Engineering workflow
+
+```text
+Mission requirements
+        |
+Payload sizing and radiometry
+        |
+Payload optimisation
+        |
+Orbit and coverage
+        |
+Mission operations and ground segment
+        |
+Spacecraft subsystem sizing
+        |
+Integrated budgets and requirements
+        |
+Spacecraft configuration
+        |
+Monte Carlo robustness
+        |
+Final preliminary design review
+```
+
+## Repository contents
+
+| Area | Main script | Key outputs |
+|---|---|---|
+| Payload geometry | `payload_sizing.py` | Focal length, detector and swath trades |
+| Radiometry | `payload_radiometry.py` | Band SNR and data-rate estimates |
+| Payload optimisation | `payload_optimisation.py` | Aperture/exposure trade and preferred payload |
+| Orbit and coverage | `orbit_coverage.py` | SSO design, ground tracks and UK revisit trade |
+| Mission operations | `mission_operations.py` | Contacts, downlink capacity, storage and latency |
+| Spacecraft subsystems | `spacecraft_subsystems.py` | Mass, power, link, ADCS, propulsion and thermal sizing |
+| Integrated baseline | `integrated_budgets.py` | System margins and requirements matrix |
+| Configuration | `spacecraft_configuration.py` | Layout, centre of mass, drawings and STL concept |
+| Robustness | `monte_carlo_robustness.py` | 5,000-case Monte Carlo and sensitivity analysis |
+| Final review | `final_design_review.py` | Selected design, final matrix and review report |
+
+The complete preliminary design review is available here:
+[`Earth_Observation_Satellite_Preliminary_Design_Review.pdf`](results/final_design_review/Earth_Observation_Satellite_Preliminary_Design_Review.pdf).
+
+## Example engineering outputs
+
+| Orbit and coverage | Spacecraft configuration |
+|---|---|
+| ![Preferred ground track](results/orbit_coverage/preferred_ground_track.png) | ![Spacecraft configuration](results/spacecraft_configuration/spacecraft_configuration_3d.png) |
+
+| Integrated budgets | Robustness and sensitivity |
+|---|---|
+| ![Integrated budget status](results/integrated_budgets/integrated_budget_status.png) | ![Monte Carlo robustness](results/monte_carlo_robustness/robustness_and_sensitivity.png) |
+
+## Installation
+
+Python 3.12 was used for the completed study.
+
+```bash
+git clone https://github.com/mathonwyaj/Earth-Observation-Satellite-Mission-Design.git
+cd Earth-Observation-Satellite-Mission-Design
+python -m venv .venv
+```
+
+Activate the environment on Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+On macOS or Linux:
+
+```bash
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+## Run the analysis
+
+Each script writes its numerical results and figures to the corresponding
+folder under `results/`.
 
 ```bash
 python payload_sizing.py
@@ -21,112 +130,58 @@ python monte_carlo_robustness.py
 python final_design_review.py
 ```
 
-Each script writes its trade results and figures to the corresponding folder
-under `results/`.
+## Verification
 
-## Run tests
+Run the complete automated test suite with:
 
 ```bash
 python -m unittest discover -v
 ```
 
-## Baseline requirements under assessment
+The final baseline contains **61 automated tests** covering physical output
+checks, trade-study behaviour, subsystem closure, configuration geometry,
+requirements integration and final-review consistency.
 
-- Ground-sampling distance: 10 m or better at nadir
-- Swath width: at least 50 km
-- Orbit-altitude trade range: 450-650 km
-- Spectral range used for diffraction sizing: up to 850 nm
-- Image-motion smear: no more than 0.5 pixel during exposure
+## Requirements and assumptions
 
-These are preliminary design targets, not achieved performance claims.
+The principal concept requirements include:
 
-## Phase 2 baseline assumptions
+- 10 m or better nadir ground-sampling distance
+- At least 50 km swath width
+- 450-650 km orbit-altitude trade range
+- Blue, green, red and near-infrared imaging bands
+- Image-motion smear no greater than 0.5 pixel during exposure
+- 60 kg wet-mass limit per spacecraft
+- 95% simultaneous budget-closure target under the selected uncertainties
 
-- Bands: blue, green, red and near-infrared (NIR)
-- Clear aperture: 80 mm
-- Optical throughput: 35 percent
-- Detector quantum efficiency: 60 percent
-- Exposure: 0.60 ms, below the Phase 1 smear limit
-- Quantisation: 12 bits per pixel
-- Lossless/near-lossless design compression assumption: 4:1
-- Reference imaging strip: 1,000 km along track
+The models use analytical or reduced-order representations suitable for early
+trade studies. Important assumptions include representative UK sites rather
+than a complete area-coverage mask, idealised orbit and ground-station
+availability, assumed optical and detector properties, preliminary component
+allocations and simplified environmental models.
 
-The radiometric model uses assumed solar irradiance, dark-water reflectance and
-detector noise. It is suitable for sensitivity studies but does not represent
-validated vendor hardware or flight performance.
+## Limitations and future verification
 
-## Phase 3 optimisation
+The study does not claim flight qualification or validated vendor performance.
+Further work would include:
 
-The optimiser searches aperture and exposure time while checking diffraction,
-image smear and a provisional minimum SNR of 50 in every band. It compares a
-standard detector baseline with an enhanced sensitivity case, but selects the
-preferred design from the standard assumptions. Outputs are written to
-`results/optimisation/`.
+- high-fidelity optical design and detector selection
+- higher-fidelity orbit propagation and complete area-coverage analysis
+- licensed ground-service and detailed RF link validation
+- component-level thermal, structural and radiation analysis
+- hardware selection, procurement and accommodation verification
+- reliability and lifetime analysis for the three-year mission requirement
+- hardware-in-the-loop or flight-like software verification
 
-## Phase 4 orbit and coverage
+## Tools
 
-The circular-orbit model calculates sun-synchronous inclination from J2 nodal
-precession, propagates Earth-fixed ground tracks and estimates revisit for five
-representative UK sites. It compares nadir, 15-degree and 25-degree off-nadir
-access across 450-650 km and one- versus two-spacecraft architectures. Outputs
-are written to `results/orbit_coverage/`.
+- Python 3.12
+- NumPy
+- Matplotlib
+- python-docx
+- `unittest`
 
-## Phase 5 mission operations
+## Author
 
-The operations model compares Goonhilly-only and Goonhilly-plus-Svalbard
-networks for the two-satellite 550 km architecture. It converts the Phase 2
-compressed scene volume into daily generated data, geometric contacts, usable
-downlink capacity, peak onboard backlog, recommended storage and preliminary
-priority-delivery latency. Outputs are written to `results/mission_operations/`.
-
-Ground-station coordinates, availability and protocol efficiency are explicit
-concept-design assumptions. A later communications analysis must close the RF
-link budget and validate real ground-service constraints.
-
-## Phase 6 spacecraft subsystems
-
-The subsystem model sizes solar-array and battery capacity, checks a preliminary
-150 Mbps X-band link, derives reaction-wheel torque and momentum requirements,
-estimates propulsion propellant and radiator area, and produces a provisional
-mass allocation against the 60 kg wet-mass limit. Outputs are written to
-`results/spacecraft_subsystems/`.
-
-## Phase 7 integrated baseline
-
-The integration model imports results from all earlier phases, assigns selected
-system capacities and calculates margins for mass, power, storage, downlink,
-ADCS, propulsion, thermal control and communications. It also creates a formal
-requirements-verification matrix with Pass, Fail and Open states. Outputs are
-written to `results/integrated_budgets/`.
-
-## Phase 8 spacecraft configuration
-
-The configuration model defines the spacecraft bus, component bounding boxes,
-mass locations, centre of mass, deployed solar arrays, radiator allocation and
-payload accommodation. It generates 3D and orthographic drawings, a component
-layout CSV, a CAD dimension sheet and an ASCII STL concept model in
-`results/spacecraft_configuration/`.
-
-## Phase 9 robustness
-
-The reproducible Monte Carlo model varies payload signal, mass growth, solar
-degradation, communications losses, spacecraft inertia, disturbance torque,
-delta-v demand, thermal load, data volume and ground availability. It reports
-constraint pass rates, overall budget closure, a hardened design comparison
-and global sensitivity correlations in `results/monte_carlo_robustness/`.
-
-## Phase 10 final design review
-
-The final review strengthens the allocations exposed by Phase 9 and evaluates a
-four-site polar ground network. The selected concept achieves 98.48% simultaneous
-budget closure in the reproducible 5,000-case study and a modeled 1.39 h worst
-priority latency. Fifteen concept-level requirements pass and the three-year
-mission-life verification remains explicitly open. The final report and review
-evidence are written to `results/final_design_review/`.
-
-## Engineering scope
-
-This repository is a preliminary systems-design portfolio study. Results use
-transparent engineering assumptions and simplified analytical models. They do
-not represent flight qualification, detailed optical design, licensed ground
-service, component procurement or validated mission performance.
+**Mathonwy Akiwumi-Jones**  
+[GitHub](https://github.com/mathonwyaj) | [LinkedIn](https://www.linkedin.com/in/mathonwy-akiwumi-jones-342910374/)
