@@ -1,0 +1,10 @@
+{
+  "monte_carlo_cases": 5000,
+  "robust_budget_closure_percent": 98.48,
+  "robustness_target_percent": 95.0,
+  "worst_priority_latency_h": 1.3900070546737213,
+  "requirements_passed": 15,
+  "requirements_open": 1,
+  "requirements_failed": 0,
+  "review_outcome": "Concept design accepted with open verification work"
+}

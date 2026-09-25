@@ -1,0 +1,8 @@
+{
+  "cases": 5000,
+  "baseline_budget_success_percent": 10.02,
+  "hardened_budget_success_percent": 92.66,
+  "full_mission_success_percent": 0.0,
+  "dominant_baseline_failure": "Payload SNR",
+  "dominant_sensitivity_driver": "Disturbance torque"
+}

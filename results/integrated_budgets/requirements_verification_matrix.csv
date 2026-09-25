@@ -1,0 +1,16 @@
+identifier,requirement,threshold,predicted,status,verification,source_phase
+MIS-001,Nadir ground-sampling distance,<= 10 m,10.00 m,Pass,Analysis,Phase 1
+MIS-002,Imaging swath width,>= 50 km,81.92 km,Pass,Analysis,Phase 1
+PAY-001,Worst-band payload SNR,>= 50,50.60,Pass,Analysis,Phase 3
+MIS-003,Representative UK-site revisit,<= 48 h,37.79 h,Pass,Simulation,Phase 4
+MIS-004,Priority product delivery,<= 3 h when access permits,7.00 h,Fail,Simulation,Phase 5
+DAT-001,Daily downlink exceeds generation,>= 39.32 Gbit/day,562.28 Gbit/day,Pass,Simulation,Phase 5
+DAT-002,Onboard storage capacity,>= 2.95 GB,8.0 GB,Pass,Budget,Phase 7
+SYS-001,Wet mass per spacecraft,<= 60 kg,55.29 kg,Pass,Budget,Phase 6
+PWR-001,End-of-life array closes power budget,>= 130.35 W,150.0 W,Pass,Budget,Phase 7
+COM-001,X-band residual link margin,>= 3 dB,3.86 dB,Pass,Analysis,Phase 6
+ADCS-001,Reaction-wheel control torque,>= 0.0097 N m,0.010 N m,Pass,Analysis,Phase 6
+ADCS-002,Reaction-wheel momentum capacity,>= 0.086 N m s,0.100 N m s,Pass,Analysis,Phase 6
+PROP-001,Available mission delta-v,>= 48.0 m/s,50.0 m/s,Pass,Budget,Phase 7
+THERM-001,Hot-case radiator allocation,>= 0.534 m2,0.60 m2,Pass,Analysis,Phase 7
+MIS-005,Three-year mission life,>= 3 years,Not yet reliability-tested,Open,Test / reliability analysis,Future

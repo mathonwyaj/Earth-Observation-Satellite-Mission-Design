@@ -1,0 +1,12 @@
+name,mass_kg,x_m,y_m,z_m,size_x_m,size_y_m,size_z_m,category
+Payload telescope,7.932,0.0,0.0,-0.08,0.24,0.24,0.65,payload
+Structure and mechanisms,10.0,0.0,0.0,0.0,0.7,0.7,0.9,distributed
+Electrical power system,7.0,0.18,0.15,0.12,0.22,0.18,0.14,equipment
+ADCS assembly,6.0,-0.18,-0.15,0.1,0.22,0.22,0.18,equipment
+X-band communications,4.0,0.18,-0.16,0.15,0.22,0.16,0.12,equipment
+Command and data handling,2.0,-0.18,0.16,0.15,0.2,0.16,0.1,equipment
+Thermal hardware,4.0,0.0,0.0,0.0,0.65,0.02,0.46,distributed
+Propulsion hardware,3.5,-0.24,0.0,-0.18,0.14,0.16,0.18,equipment
+Harness and integration,2.5,0.0,0.0,0.0,0.6,0.6,0.7,distributed
+Propellant,1.3201610641,-0.24,0.0,-0.18,0.12,0.12,0.14,contained
+System mass-margin reserve,7.0398,0.0,0.0,0.0,0.3,0.3,0.3,reserve

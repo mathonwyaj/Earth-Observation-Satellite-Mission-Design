@@ -1,0 +1,11 @@
+budget,item,required,selected,unit,margin_percent,status
+Mass,Wet spacecraft mass,55.29196106407849,60.0,kg limit,8.514870598395508,Pass
+Power,EOL solar-array power,130.34592836859943,150.0,W,15.078393224391107,Pass
+Power,Battery capacity,53.47222222222222,80.0,Wh,49.61038961038962,Pass
+Data,Onboard storage,2.9491199999999997,8.0,GB,171.26736111111111,Pass
+Data,Daily downlink,39.3216,562.2750000000001,Gbit/day,1329.9392700195317,Pass
+ADCS,Reaction-wheel torque,0.009696273622190719,0.01,N m,3.1324031235481886,Pass
+ADCS,Wheel momentum,0.08608489222522198,0.1,N m s,16.164401691265695,Pass
+Propulsion,Delta-v capacity,48.0,50.0,m/s,4.166666666666674,Pass
+Thermal,Radiator area,0.534306620686997,0.6,m2,12.295071176272575,Pass
+Communications,X-band link margin,3.0,3.855339817162644,dB,28.511327238754802,Pass

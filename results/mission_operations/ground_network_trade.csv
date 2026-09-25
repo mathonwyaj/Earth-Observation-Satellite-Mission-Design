@@ -1,0 +1,3 @@
+network,stations,passes_per_spacecraft_per_day,mean_pass_duration_min,daily_downlink_capacity_gbit_per_spacecraft,daily_generated_data_gbit_per_spacecraft,capacity_margin_percent,peak_backlog_gbit_per_spacecraft,recommended_storage_gb_per_spacecraft,worst_priority_latency_h,meets_daily_capacity,meets_three_hour_priority_target
+Goonhilly only,1,4.142857142857142,6.121825396825397,143.37,39.3216,264.60876464843756,19.6608,2.9491199999999997,9.940007054673721,True,False
+Goonhilly + Svalbard,2,13.571428571428571,7.30932328605201,562.2750000000001,39.3216,1329.9392700195317,19.6608,2.9491199999999997,6.998340388007055,True,False

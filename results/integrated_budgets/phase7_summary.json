@@ -1,0 +1,15 @@
+{
+  "requirements": {
+    "Pass": 13,
+    "Fail": 1,
+    "Open": 1
+  },
+  "total_requirements": 15,
+  "minimum_positive_budget_margin_percent": 3.1324031235481886,
+  "failed_requirement_ids": [
+    "MIS-004"
+  ],
+  "open_requirement_ids": [
+    "MIS-005"
+  ]
+}

@@ -1,0 +1,19 @@
+metric,value_percent_or_correlation,type
+Payload SNR,57.98,requirement_pass_rate_percent
+Wet mass,99.26,requirement_pass_rate_percent
+Solar-array power,96.72,requirement_pass_rate_percent
+X-band margin,74.2,requirement_pass_rate_percent
+Wheel torque,60.74,requirement_pass_rate_percent
+Wheel momentum,67.92,requirement_pass_rate_percent
+Delta-v,64.25999999999999,requirement_pass_rate_percent
+Radiator area,88.34,requirement_pass_rate_percent
+Daily data balance,100.0,requirement_pass_rate_percent
+Onboard storage,100.0,requirement_pass_rate_percent
+Payload signal,0.032176250359936334,minimum_margin_correlation
+Mass growth,-0.005702310957072195,minimum_margin_correlation
+Power load,0.0050380751194134795,minimum_margin_correlation
+Communications loss,-0.43378134958372583,minimum_margin_correlation
+Spacecraft inertia,-0.08574414518878692,minimum_margin_correlation
+Disturbance torque,-0.5322338076795348,minimum_margin_correlation
+Delta-v demand,-0.10465066477876803,minimum_margin_correlation
+Thermal load,-0.021061316339836184,minimum_margin_correlation
